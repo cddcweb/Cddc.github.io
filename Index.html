@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CD Diego Causado</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    nav {
+      background: #333;
+      color: #fff;
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li {
+      display: inline;
+      margin-right: 20px;
+    }
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 18px;
+    }
+    nav ul li a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #333;
+      padding-bottom: 10px;
+    }
+    p {
+      color: #555;
+    }
+    .section {
+      margin-top: 20px;
+    }
+    /* Estilos adicionales para las notificaciones y reseñas */
+    #notificaciones-list, #reseñas-list-content {
+      list-style: none;
+      padding: 0;
+    }
+    #notificaciones-list li, #reseñas-list-content li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <!-- Menú de Navegación -->
+  <nav>
+    <ul>
+      <li><a href="#inscripcion">Inscripción</a></li>
+      <li><a href="#pagos">Pagos</a></li>
+      <li><a href="#notificaciones">Notificaciones</a></li>
+      <li><a href="#reseñas">Reseñas</a></li>
+    </ul>
+  </nav>
+
+  <!-- Sección de Visión, Misión y Valores -->
+  <div class="container">
+    <h1>Visión, Misión y Valores</h1>
+    <p>Ser en 2028 una escuela de formación deportiva reconocida en el país, con niños jóvenes futbolistas altamente preparados con capacidades para jugar en diferentes clubes profesionales a nivel Municipal, Regional, Nacional e Internacional.</p>
+    
+    <h2>Misión</h2>
+    <p>Contribuir a la formación deportiva-futbolística de los niños y jóvenes del departamento y sus alrededores, a través de actividades que generen un bienestar integral y puedan aportar un desarrollo físico-motriz, intelectual, afectivo, y social con profesionales capacitados y calificados en ciencias del deporte, que utilizan metodologías y técnicas que están a la vanguardia del fútbol mundial, generando a su formación un crecimiento interdisciplinario en diferentes componentes para ser excelentes deportistas con principios y valores.</p>
+    
+    <h3>Valores</h3>
+    <p>Trabajo en equipo, compromiso, disciplina, tolerancia, respeto.</p>
+  </div>
+
+  <!-- Sección de Inscripción -->
+  <div id="inscripcion" class="container section">
+    <h1>Inscripción</h1>
+    <p>Para inscribirte, visita el siguiente enlace:</p>
+    <p><a href="https://sucursalpersonas.transaccionesbancolombia.com/mua/USER?scis=EdD6euqU1bYmUMWNtC%2FaMtp%2BMLTwrUGYgPiLigvRzqQ%3D#no-back-button" target="_blank">Haz clic aquí para registrarte en Bancolombia.</a></p>
+  </div>
+
+  <!-- Sección de Pagos -->
+  <div id="pagos" class="container section">
+    <h1>Pagos</h1>
+    <p>La mensualidad vale 70.000 y la inscripción 50.000.</p>
+    <p>Para realizar el pago, visita el siguiente enlace:</p>
+    <p><a href="https://sucursalpersonas.transaccionesbancolombia.com/mua/USER?scis=EdD6euqU1bYmUMWNtC%2FaMtp%2BMLTwrUGYgPiLigvRzqQ%3D#no-back-button" target="_blank">Haz clic aquí para realizar el pago en Bancolombia.</a></p>
+  </div>
+
+  <!-- Sección de Notificaciones -->
+  <div id="notificaciones" class="container section">
+    <h1>Notificaciones</h1>
+    <ul id="notificaciones-list">
+      <!-- Notificaciones se agregarán aquí dinámicamente -->
+    </ul>
+    <button onclick="agregarNotificacion()">Agregar Notificación</button>
+  </div>
+
+  <!-- Sección de Reseñas -->
+  <div id="reseñas" class="container section">
+    <h1>Reseñas</h1>
+    
+    <!-- Formulario de reseñas -->
+    <form id="form-reseña" onsubmit="return agregarReseña()">
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required>
+      
+      <label for="reseña">Reseña:</label>
+      <textarea id="reseña" name="reseña" rows="4" required></textarea>
+      
+      <button type="submit">Enviar Reseña</button>
+    </form>
+
+    <!-- Lista de reseñas -->
+    <div id="reseñas-list">
+      <h2>Reseñas de Usuarios</h2>
+      <ul id="reseñas-list-content">
+        <!-- Reseñas se agregarán aquí dinámicamente -->
+      </ul>
+    </div>
+  </div>
+
+  <script>
+    // Función para agregar notificaciones
+    function agregarNotificacion() {
+      const lista = document.getElementById('notificaciones-list');
+      const notificacion = document.createElement('li');
+      notificacion.textContent = 'Nueva notificación recibida: ' + new Date().toLocaleString();
+      lista.appendChild(notificacion);
+    }
+
+    // Función para agregar reseñas
+    function agregarReseña() {
+      const nombre = document.getElementById('nombre').value;
+      const reseña = document.getElementById('reseña').value;
+      const lista = document.getElementById('reseñas-list-content');
+      
+      const item = document.createElement('li');
+      item.innerHTML = `<strong>${nombre}</strong>: ${reseña}`;
+      lista.appendChild(item);
+
+      // Limpiar el formulario
+      document.getElementById('form-reseña').reset();
+
+      // Evitar el envío del formulario (recarga de la página)
+      return false;
+    }
+  </script>
+</body>
+</html>
